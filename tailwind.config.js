@@ -16,6 +16,7 @@ export default {
         64: "64px",
         96: "96px",
         128: "128px",
+        256: "256px",
       },
       fontSize: {
         small: "10px",
