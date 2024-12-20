@@ -48,22 +48,27 @@
         </p>
       </div>
     </section>
-    <section class="px-128 mt-96">
+    <section class="px-128 mt-96 pb-64">
       <div>
         <h4 class="font-['Roboto'] text-buttontext font-semibold">
           Living Room
         </h4>
       </div>
-      <div></div>
+      <div class="grid grid-cols-3 mt-32 gap-32">
+        <CardProduct
+          :title="product.title"
+          :price="product.price"
+          :urlBackground="product.url_banner_product"
+          v-for="product in products"
+          :key="product.price + Date.now()"
+        />
+      </div>
     </section>
   </div>
 </template>
-<script>
+<script setup>
 import api from "../api/index.js";
-export default {
-  async setup() {
-    const products = await api.products.GetAll();
-    console.log(products);
-  },
-};
+
+var products = ref([]);
+products = await api.products.GetAll();
 </script>
