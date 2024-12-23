@@ -1,4 +1,15 @@
 {
+  "compilerOptions": {
+    "target": "ES2024",
+    "module": "CommonJS",
+    "sourceMap": true,
+    "outDir": "./build",
+    "lib": ["ESNext"],
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true
+  },
   // https://nuxt.com/docs/guide/concepts/typescript
   "extends": "./.nuxt/tsconfig.json"
 }
