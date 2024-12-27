@@ -4,7 +4,7 @@
     "module": "CommonJS",
     "sourceMap": true,
     "outDir": "./build",
-    "lib": ["ESNext"],
+    "lib": ["ESNext", "DOM"],
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,

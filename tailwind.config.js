@@ -11,6 +11,7 @@ export default {
         bigkick: "1360px",
       },
       spacing: {
+        8: "8px",
         16: "16px",
         32: "32px",
         64: "64px",
@@ -24,6 +25,7 @@ export default {
         mbody: "16px",
         buttontext: "20px",
         bigbody: "25px",
+        h3: "57px",
         semibig: "91px",
         big: "6.4375rem",
       },
