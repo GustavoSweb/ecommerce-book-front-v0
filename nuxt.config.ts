@@ -5,6 +5,11 @@ export default defineNuxtConfig({
   modules: ["@nuxtjs/tailwindcss"],
   app: {
     head: {
+      script: [
+        {
+          src: "https://kit.fontawesome.com/89ba577433.js",
+        },
+      ],
       link: [
         {
           rel: "stylesheet",

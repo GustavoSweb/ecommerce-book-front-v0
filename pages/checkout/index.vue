@@ -64,25 +64,41 @@
         </div>
       </div>
     </div>
-    <div class="w-full flex items-start mt-64">
+    <div class="w-full flex items-start mt-64 gap-64">
       <table class="w-full h-auto">
-        <thead>
+        <thead class="border-b-[1px] h-48 align-top border-c10 !pb-32">
           <tr class="text-left">
             <th class="w-[60%]">Produto</th>
+            <th>Modelo</th>
             <th>Preço</th>
-            <th>Subtotal</th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(product, index) in products" :key="index">
-            <td>{{ product.title }}fasdfa</td>
-            <td>{{ product.quantity }}asdfasdf</td>
-            <td>{{ product.price }}sdfasdf</td>
-          </tr>
-          <tr>
-            <td>fasdfa</td>
-            <td>asdfasdf</td>
-            <td>sdfasdf</td>
+          <tr
+            v-for="(product, index) in products"
+            :key="index"
+            class="h-[144px] box-border border-b-[1px] border-c1"
+          >
+            <td class="flex gap-16 h-[96px] mt-[24px]">
+              <div
+                :style="{
+                  backgroundImage: `url('${product.url_banner_product}')`,
+                }"
+                class="h-full w-[80px] mb-16 bg-center bg-contain bg-no-repeat bg-[#F3F5F7]"
+              ></div>
+              <div class="flex flex-col justify-between">
+                <h3
+                  class="font-['Roboto'] text-body font-semibold max-w-[150px]"
+                >
+                  {{ product.title }}
+                </h3>
+                <ButtonClear textButton="Excluir" />
+              </div>
+            </td>
+            <td>{{ product.is_physical ? "Fisico" : "Digital" }}</td>
+            <td class="font-['Roboto'] text-buttontext font-semibold">
+              R${{ product.price }}
+            </td>
           </tr>
         </tbody>
       </table>
@@ -139,7 +155,14 @@ scr
 <script lang="ts" setup>
 var titles = ref(["Carrinho", "Checkout", "Finalizado!"]);
 var page = ref(0);
-var products = ref([]);
+var products = ref(getItem("cart_products"));
+function getItem(item: string) {
+  if (import.meta.env.SSR === false) {
+    return JSON.parse(localStorage.getItem(item) + "");
+  } else {
+    return undefined;
+  }
+}
 var emailChecked = ref(true);
 function AlterCheckEmail() {
   emailChecked.value = !emailChecked.value;

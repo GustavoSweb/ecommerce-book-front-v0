@@ -55,20 +55,28 @@
         </h4>
       </div>
       <div class="grid grid-cols-3 mt-32 gap-32">
-        <CardProduct
-          :title="product.title"
-          :price="product.price"
-          :urlBackground="product.url_banner_product"
-          v-for="product in products"
-          :key="product.price + Date.now()"
-        />
+       <NuxtLink :to="`/product/${product.id}`" v-for="(product, index) in products"
+       :key="index">
+          <CardProduct
+            :title="product.title"
+            :price="product.price"
+            :urlBackground="product.url_banner_product"
+            
+          />
+       </NuxtLink>
       </div>
     </section>
   </div>
 </template>
-<script setup>
+<script lang="ts" setup>
 import api from "../api/index.js";
-
+function setItem(key: string, item: any) {
+  if (import.meta.env.SSR === false) {
+    return localStorage.setItem(key, JSON.stringify(item));
+  } else {
+    return undefined;
+  }
+}
 var products = ref([]);
 products = await api.products.GetAll();
 </script>
