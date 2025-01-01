@@ -55,15 +55,17 @@
         </h4>
       </div>
       <div class="grid grid-cols-3 mt-32 gap-32">
-       <NuxtLink :to="`/product/${product.id}`" v-for="(product, index) in products"
-       :key="index">
+        <NuxtLink
+          :to="`/product/${product.id}`"
+          v-for="(product, index) in products"
+          :key="index"
+        >
           <CardProduct
             :title="product.title"
             :price="product.price"
             :urlBackground="product.url_banner_product"
-            
           />
-       </NuxtLink>
+        </NuxtLink>
       </div>
     </section>
   </div>

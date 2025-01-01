@@ -10,7 +10,9 @@
       <div class="flex gap-16">
         <img src="/icons/search.svg" alt="" />
         <img src="/icons/user-circle.svg" />
-        <NuxtLink to="/checkout"><img src="/icons/shoppingbag.svg" alt="" /></NuxtLink>
+        <NuxtLink to="/checkout"
+          ><img src="/icons/shoppingbag.svg" alt=""
+        /></NuxtLink>
       </div>
     </header>
     <slot></slot>
